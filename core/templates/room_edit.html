@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Modyfikuj salę</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <label>Nazwa:<input type="text" name="name" value="{{ room.name }}"></label>
+    <label>Pojemnosc:<input type="text" name="capacity" value="{{ room.capacity }}"></label>
+    <label>Ma projektor:
+        <input type="checkbox" name="has_projector" {% if room.has_projector %}checked{% endif %} />
+    </label>
+        <input type="submit" value="Zmień salę">
+</form>
+{% endblock %}
